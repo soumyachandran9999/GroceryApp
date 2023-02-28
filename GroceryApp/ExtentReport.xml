@@ -1,0 +1,20 @@
+<suite name="My Test Suite">
+	<listeners>
+		<listener class-name="utilities.ExtentReport" />
+	</listeners>
+	<test name="My Test">
+		<classes>
+			<class name="testCases.LoginPageTestCases" />
+			<class name="testCases.AdminUsersPageTestCases" />
+			<class name="testCases.HomePageTestCases" />
+			<class name="testCases.ManageExpensePageTestCases" />
+			<class name="testCases.ManageLocationPageTestCases" />
+			<class name="testCases.ManageOrderPageTestCases" />
+			<class name="testCases.ManagePaymentMethodPageTestCases" />
+			<class name="testCases.ManageProductPageTestCases" />
+			<class name="testCases.ManageSliderPageTestCases" />
+			<class name="testCases.ManageUsersTestCases" />
+			<class name="testCases.VerifyUsersPageTestCases" />
+		</classes>
+	</test>
+</suite>

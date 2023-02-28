@@ -1,0 +1,24 @@
+package testCases;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import constant.Constant;
+import elementRepository.LoginPage;
+import elementRepository.ManagePaymentMethodPage;
+
+public class ManagePaymentMethodPageTestCases extends BaseClass {
+	LoginPage lp;
+	ManagePaymentMethodPage mpmp;
+
+	@Test
+	public void verifyTheTitleOfManagePaymentMethodPage() {
+		lp=new LoginPage(driver);
+		lp.signInToTheApplication(Constant.USERNAME, Constant.PASSWORD);
+		mpmp=new ManagePaymentMethodPage(driver);
+		mpmp.clickManagePaymentMethodsTab();
+		String actualResult= mpmp.getTitleOfManagePaymentMEthodsPage();
+		String expectedResult= Constant.EXPECTEDRESULTOFVERIFYTHETITLEOFMANAGEPAYMENTMETHODPAGE;
+		Assert.assertEquals(actualResult, expectedResult,Constant.ERRORMESSAGEOFVERIFYTHETITLEOFMANAGEPAYMENTMETHODPAGE);
+	}
+}
