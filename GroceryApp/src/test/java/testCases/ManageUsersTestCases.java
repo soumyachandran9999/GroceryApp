@@ -1,5 +1,7 @@
 package testCases;
 
+import java.io.IOException;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -11,9 +13,10 @@ public class ManageUsersTestCases extends BaseClass{
 	LoginPage lp;
 	ManageUsersPage mup;
   @Test
-  public void verifyTheStatusOfTester003() {
+  public void verifyTheStatusOfSadfgDdf() throws IOException {
+	  testBasic();
 	  lp=new LoginPage(driver);
-	  lp.signInToTheApplication(Constant.USERNAME, Constant.PASSWORD);
+		lp.signInToTheApplication(prop.getProperty("UserName"), prop.getProperty("Password"));
 	  mup=new ManageUsersPage(driver);
 	  String actualResult= mup.getTheStatusOfSadfgDdf();
 	  String expectedResult=Constant.EXPECTEDRESULTOFVERIFYTHESTATUSORTESTER003;

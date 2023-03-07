@@ -46,13 +46,15 @@ public class ManageSliderPage {
 	public String getTheCurrentURL() {
 		return gu.getTheCurrentURLOFPage(driver);
 	}
-	
+
 	public String uploadMattaRiceInManageSliderPage() throws AWTException {
-		return gu.addNewSliderInformationForElement(driver, newButton, chooseFile, saveButton, linkTab, "aaaa",alertMessage);
+		return gu.addNewSliderInformationForElement(driver, newButton, chooseFile, saveButton, linkTab, "abcd",
+				alertMessage);
 	}
+
 	public String scrollManageSlidePage() throws InterruptedException {
 		gu.clickButton(manageSliderTab);
-		return gu.pageScroll(driver,pageLink);
+		return gu.pageScroll(driver, pageLink);
 	}
 
 }

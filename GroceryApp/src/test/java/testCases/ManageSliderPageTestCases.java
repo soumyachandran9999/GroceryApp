@@ -22,7 +22,7 @@ public class ManageSliderPageTestCases extends BaseClass {
 	public void verifyTheCurrentPageURL() throws IOException {
 		testBasic();
 		lp = new LoginPage(driver);
-		lp.signInToTheApplication(Constant.USERNAME, Constant.PASSWORD);
+		lp.signInToTheApplication(prop.getProperty("UserName"), prop.getProperty("Password"));
 		msp = new ManageSliderPage(driver);
 		msp.clickManageSliderTab();
 		String actualResult = msp.getTheCurrentURL();
@@ -34,24 +34,25 @@ public class ManageSliderPageTestCases extends BaseClass {
 	public void addNewSliderInformationForMattaRice() throws IOException, AWTException {
 		testBasic();
 		lp = new LoginPage(driver);
-		lp.signInToTheApplication(Constant.USERNAME, Constant.PASSWORD);
+		lp.signInToTheApplication(prop.getProperty("UserName"), prop.getProperty("Password"));
 		msp = new ManageSliderPage(driver);
 		msp.clickManageSliderTab();
 		String actualResult = msp.uploadMattaRiceInManageSliderPage();
-		//actualResult=actualResult.replaceAll("[^a-zA-Z0-9"]," ");
+		actualResult = actualResult.replaceAll("[^a-zA-Z0-9]", " ");
 		String expectedResult = Constant.EXPECTEDRESULTOFADDNEWSLIDERINFORMATIONFORMATTARICE;
-		Assert.assertEquals(actualResult, expectedResult, prop.getProperty("ErrorMessageOfAddNewSliderInformationForMattaRice"));
+		Assert.assertEquals(actualResult, expectedResult,
+				prop.getProperty("ErrorMessageOfAddNewSliderInformationForMattaRice"));
 	}
-	
+
 	@Test
-	public void scrollManageSlidePage() throws IOException, InterruptedException  {
+	public void scrollManageSlidePage() throws IOException, InterruptedException {
 		testBasic();
 		lp = new LoginPage(driver);
-		lp.signInToTheApplication(Constant.USERNAME, Constant.PASSWORD);
+		lp.signInToTheApplication(prop.getProperty("UserName"), prop.getProperty("Password"));
 		msp = new ManageSliderPage(driver);
 		msp.clickManageSliderTab();
 		String actualResult = msp.scrollManageSlidePage();
-		String expectedResult =prop.getProperty("ExpectedResultOfScrollManageSlidePage");
+		String expectedResult = prop.getProperty("ExpectedResultOfScrollManageSlidePage");
 		Assert.assertEquals(actualResult, expectedResult, prop.getProperty("ErrorMessageOfScrollManageSlidePage"));
 	}
 

@@ -18,21 +18,23 @@ public class ManageLocationPage {
 		PageFactory.initElements(driver, this);// initialize elements page factory
 
 	}
-	
+
 	@FindBy(xpath = "(//a[@href='https://groceryapp.uniqassosiates.com/admin/list-location'])[1]")
 	WebElement manageLocationTab;
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']//tbody//tr//td[3]")
 	List<WebElement> stateColumn;
-	
+
 	public void clickManageLocationTab() {
 		gu.clickButton(manageLocationTab);
 	}
+
 	public String getTheStatusOfCornwallStateInManageLocation() {
 		return gu.getTheStatusOfUsers(driver, stateColumn, "Cornwall");
 	}
+
 	public String getTheDeliveryChargeForDerbyState() {
-		
-		return gu.getTheDeliveryChargeForState(driver,stateColumn,"Derby");
+
+		return gu.getTheDeliveryChargeForState(driver, stateColumn, "Derby");
 	}
 
 }

@@ -18,7 +18,7 @@ public class ManageOrderPage {
 		PageFactory.initElements(driver, this);// initialize elements page factory
 
 	}
-	
+
 	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-order']")
 	WebElement manageOrderMoreInfo;
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']//tbody//tr//td[1]")
@@ -31,14 +31,13 @@ public class ManageOrderPage {
 	WebElement changeDeliveryDatElement;
 	@FindBy(xpath = "(//input[@class='jquery-datepicker__input datepicker1'])[1]")
 	WebElement deliveryDatElement;
-	
+
 	public void clickManageOrderMoreInfo() {
 		gu.clickButton(manageOrderMoreInfo);
 	}
-	
+
 	public String changeTheStatusOfOrderId295() {
 		return gu.changeTheStatusOfOrderId(driver, orderIdColumn, "295");
 	}
-	
 
 }

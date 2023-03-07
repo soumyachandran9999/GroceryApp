@@ -38,7 +38,7 @@ public class VerifyUsersPage {
 
 	public String selectStatusActiveForSearchListUsersInVerifyUsersTab() {
 		gu.clickButton(verifyUsersTab);
-		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMillis(5000));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(5000));
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@onclick='click_button(2)']")));
 		gu.clickButton(searchButton);
 		return gu.selectOptionFromDropDown(statusDropDown, "active");

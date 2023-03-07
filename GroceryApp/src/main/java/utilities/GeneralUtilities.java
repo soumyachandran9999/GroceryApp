@@ -8,6 +8,7 @@ import java.awt.event.KeyEvent;
 import java.sql.Driver;
 import java.time.Duration;
 import java.util.List;
+import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -123,8 +124,8 @@ public class GeneralUtilities {
 	}
 
 	public String addNewSliderInformationForElement(WebDriver driver, WebElement newButtonElement,
-			WebElement choosFileButtonElement, WebElement saveButtonElement, WebElement linkBarElement, String value,WebElement alertMessage)
-			throws AWTException {
+			WebElement choosFileButtonElement, WebElement saveButtonElement, WebElement linkBarElement, String value,
+			WebElement alertMessage) throws AWTException {
 		clickButton(newButtonElement);
 //		clickButton(choosFileButtonElement);
 		Actions actions = new Actions(driver);
@@ -145,7 +146,7 @@ public class GeneralUtilities {
 		robot.keyRelease(KeyEvent.VK_ENTER);
 		linkBarElement.sendKeys(value);
 		clickButton(saveButtonElement);
-		String msg=alertMessage.getText();
+		String msg = alertMessage.getText();
 		return msg;
 	}
 
@@ -168,86 +169,173 @@ public class GeneralUtilities {
 		return currentURL;
 
 	}
-	
-	public String addUsersToAdminUsersPage(WebElement username,WebElement pswd, WebElement userType,WebElement saveButtonElement, String userNameValue,String pswdValue, String userTypeValue,WebElement alert) {
+
+	public String addUsersToAdminUsersPage(WebElement username, WebElement pswd, WebElement userType,
+			WebElement saveButtonElement, String userNameValue, String pswdValue, String userTypeValue,
+			WebElement alert) {
 		username.sendKeys(userNameValue);
 		pswd.sendKeys(pswdValue);
 		selectOptionFromDropDown(userType, userTypeValue);
 		clickButton(saveButtonElement);
-		String alertMsg=alert.getText();
+		String alertMsg = alert.getText();
 		return alertMsg;
-		
+
 	}
-	
-	public boolean verificationOfUserAddition(WebDriver driver,List<WebElement> list,WebElement userNameElement,WebElement subSearch,String searchValue ) {
-		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMillis(5000));
+
+	public boolean verificationOfUserAddition(WebDriver driver, List<WebElement> list, WebElement userNameElement,
+			WebElement subSearch, String searchValue) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(5000));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("un")));
 		userNameElement.click();
 		userNameElement.sendKeys(searchValue);
 		clickButton(subSearch);
-		boolean result=false;
-		for(int i=0;i<list.size();i++) {
-			String name= list.get(i).getText();
-			if(name.equals(searchValue)) {
-				result= true;
+		boolean result = false;
+		for (int i = 0; i < list.size(); i++) {
+			String name = list.get(i).getText();
+			if (name.equals(searchValue)) {
+				result = true;
 				break;
 			}
 		}
 		return result;
 	}
-	
-	public String pageScroll(WebDriver driver,WebElement pageLink) throws InterruptedException {
-		JavascriptExecutor js = (JavascriptExecutor) driver;//object creation
-		  js.executeScript("window.scrollBy(0,1000)");//scroll down,values for horizontal and vertical position
-		  //Thread.sleep(3000);//to provide delay
-		  String result=pageLink.getText();
-		  return result;
+
+	public void deleteAdminUserFromAdminUsersTab(WebDriver driver, List<WebElement> list, String compareValue) {
+		String locator = null;
+		for (int i = 0; i < list.size(); i++) {
+			String name = list.get(i).getText();
+			if (name.equals(compareValue)) {
+				locator = "//table[@class='table table-bordered table-hover table-sm']//tbody//tr[" + (i + 1)
+						+ "]//td[5]//a[@role='button'][3]";
+				break;
+			}
+		}
+		WebElement deleteButton = driver.findElement(By.xpath(locator));
+		deleteButton.click();
+		driver.switchTo().alert().accept();
+
 	}
+
+	public String pageScroll(WebDriver driver, WebElement pageLink) throws InterruptedException {
+		JavascriptExecutor js = (JavascriptExecutor) driver;// object creation
+		js.executeScript("window.scrollBy(0,1000)");// scroll down,values for horizontal and vertical position
+		// Thread.sleep(3000);//to provide delay
+		String result = pageLink.getText();
+		return result;
+	}
+
 	public void onlySelectValueFromDropDown(WebElement element, String selectByValue) {
 		Select select = new Select(element);
 		select.selectByValue(selectByValue);
-		
+
 	}
 
-	public String changeTheStatusOfOrderId(WebDriver driver,List<WebElement> list, String compareValue) {
-		String locator=null;
-		for(int i=0;i<list.size();i++) {
-			String value=list.get(i).getText();
-			if(value.equals(compareValue)) {
-				locator="//table[@class='table table-bordered table-hover table-sm']//tbody//tr["+(i+1)+"]//td[6]//span[@style='text-transform: uppercase;']";
+	public String changeTheStatusOfOrderId(WebDriver driver, List<WebElement> list, String compareValue) {
+		String locator = null;
+		for (int i = 0; i < list.size(); i++) {
+			String value = list.get(i).getText();
+			if (value.equals(compareValue)) {
+				locator = "//table[@class='table table-bordered table-hover table-sm']//tbody//tr[" + (i + 1)
+						+ "]//td[6]//span[@style='text-transform: uppercase;']";
 				break;
 			}
 		}
-		WebElement status=driver.findElement(By.xpath(locator));
-		String textString=status.getText();
+		WebElement status = driver.findElement(By.xpath(locator));
+		String textString = status.getText();
 		return textString;
 	}
-	public String getgetTheStatusOfState(WebDriver driver,List<WebElement> list,String comparingValue) {
-		String locator=null;
-		for(int i=0;i<list.size();i++) {
-			String state=list.get(i).getText();
-			if(state.equals(comparingValue)) {
-				locator="//table[@class='table table-bordered table-hover table-sm']//tbody//tr["+(i+1)+"]//td[5]";
+
+	public String getgetTheStatusOfState(WebDriver driver, List<WebElement> list, String comparingValue) {
+		String locator = null;
+		for (int i = 0; i < list.size(); i++) {
+			String state = list.get(i).getText();
+			if (state.equals(comparingValue)) {
+				locator = "//table[@class='table table-bordered table-hover table-sm']//tbody//tr[" + (i + 1)
+						+ "]//td[5]";
 				break;
 			}
 		}
-		WebElement stateStatus=driver.findElement(By.xpath(locator));
-		String status=stateStatus.getText();
+		WebElement stateStatus = driver.findElement(By.xpath(locator));
+		String status = stateStatus.getText();
 		return status;
 	}
 
-	public String getTheDeliveryChargeForState(WebDriver driver,List<WebElement> list,String comparingValue) {
-		String locator=null;
-		for(int i=0;i<list.size();i++) {
-			String state=list.get(i).getText();
-			if(state.equals(comparingValue)) {
-				locator="//table[@class='table table-bordered table-hover table-sm']//tbody//tr["+(i+1)+"]//td[4]";
+	public String getTheDeliveryChargeForState(WebDriver driver, List<WebElement> list, String comparingValue) {
+		String locator = null;
+		for (int i = 0; i < list.size(); i++) {
+			String state = list.get(i).getText();
+			if (state.equals(comparingValue)) {
+				locator = "//table[@class='table table-bordered table-hover table-sm']//tbody//tr[" + (i + 1)
+						+ "]//td[4]";
 				break;
 			}
 		}
-		WebElement deliveryCharge=driver.findElement(By.xpath(locator));
-		String charge=deliveryCharge.getText();
+		WebElement deliveryCharge = driver.findElement(By.xpath(locator));
+		String charge = deliveryCharge.getText();
 		return charge;
+	}
+
+	public void addNewCategoryToExpenseCategoryPage(WebElement expenseCategory, WebElement newButton, WebElement title,
+			String expenseCategoryValue, WebElement saveBUtton) {
+		clickButton(expenseCategory);
+		clickButton(newButton);
+		title.sendKeys(expenseCategoryValue);
+		clickButton(saveBUtton);
+	}
+
+	public boolean verifyTheCategoryAddedToExpenseCategoryPage(List<WebElement> list, String comparingValue) {
+		boolean result = false;
+		for (int i = 0; i < list.size(); i++) {
+			String categoryName = list.get(i).getText();
+			if (categoryName.equals(comparingValue)) {
+				result = true;
+				break;
+			}
+		}
+		return result;
+	}
+
+	public void deleteExpenseCategory(WebDriver driver, List<WebElement> list, String comparingValue) {
+		String locator = null;
+		for (int i = 0; i < list.size(); i++) {
+			String titleNameString = list.get(i).getText();
+			if (titleNameString.equals(comparingValue)) {
+				locator = "//table[@class='table table-bordered table-hover table-sm']//tbody//tr[" + (i + 1)
+						+ "]//td[2]//i[@class='fas fa-trash-alt']";
+				break;
+			}
+		}
+		WebElement deleteButton = driver.findElement(By.xpath(locator));
+		deleteButton.click();
+		driver.switchTo().alert().accept();
+	}
+
+	public String getTheLoginBoxMessage(WebElement text) {
+		String message = text.getText();
+		return message;
+	}
+
+	public int randomnumbers() {
+		Random randomGenerator = new Random();
+		int randomInt = randomGenerator.nextInt(10000);
+		return randomInt;
+	}
+
+	public String randomPassword() {
+		String upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		String lower = "abcdefghijklmnopqrstuvwxyz";
+		String num = "0123456789";
+		String character = "!@#$%^&*-_=+|;:,<.>/?";
+		String combination = upper + lower + num + character;
+		int len = 8;
+		char[] pwd = new char[8];
+		Random r = new Random();
+		for (int i = 0; i < len; i++) {
+			pwd[i] = combination.charAt(r.nextInt(combination.length()));
+		}
+		String password = new String(pwd);
+		return password;
+
 	}
 
 }

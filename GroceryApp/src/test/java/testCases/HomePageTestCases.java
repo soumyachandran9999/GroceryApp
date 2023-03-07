@@ -1,5 +1,7 @@
 package testCases;
 
+import java.io.IOException;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -12,9 +14,10 @@ public class HomePageTestCases extends BaseClass {
 	HomePage hp;
 
 	@Test
-	public void verifyThePresenceOfBrandText() {
+	public void verifyThePresenceOfBrandText() throws IOException {
+		testBasic();
 		lp = new LoginPage(driver);
-		lp.signInToTheApplication(Constant.USERNAME, Constant.PASSWORD);
+		lp.signInToTheApplication(prop.getProperty("UserName"), prop.getProperty("Password"));
 		hp = new HomePage(driver);
 		boolean actaualResult = hp.checkWhetherTheBrandTextIsPresent();
 		boolean expectedResult = true;
@@ -23,9 +26,10 @@ public class HomePageTestCases extends BaseClass {
 	}
 	
 	@Test
-	public void verifyTheLogOutOfUserFromTheApplication() {
+	public void verifyTheLogOutOfUserFromTheApplication() throws IOException {
+		testBasic();
 		lp = new LoginPage(driver);
-		lp.signInToTheApplication(Constant.USERNAME, Constant.PASSWORD);
+		lp.signInToTheApplication(prop.getProperty("UserName"), prop.getProperty("Password"));
 		hp = new HomePage(driver);
 		String actualResult=hp.logoutFromTheApplication();
 		String expectedResult=Constant.EXPECTEDRESULTOFSUCCESSFULLOGOUT;

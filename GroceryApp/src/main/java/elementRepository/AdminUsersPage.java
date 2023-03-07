@@ -22,6 +22,7 @@ public class AdminUsersPage {
 		PageFactory.initElements(driver, this);// initialize elements page factory
 
 	}
+
 	@FindBy(xpath = "//p[text()='Admin Users']")
 	WebElement adminUsersTab;
 	@FindBy(xpath = "//a[@class='btn btn-rounded btn-danger']")
@@ -44,25 +45,29 @@ public class AdminUsersPage {
 	List<WebElement> userNameColumn;
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
 	WebElement alertMessage;
-	
+
 	public void clickAdminUsersTab() {
 		gu.clickButton(adminUsersTab);
 	}
-	
+
 	public String addUserAsAdmin() {
 		gu.clickButton(newButton);
-		return gu.addUsersToAdminUsersPage(userName, password, userType, saveButton, "Manav", "asdf", "admin",alertMessage);
-		
+		return gu.addUsersToAdminUsersPage(userName, password, userType, saveButton, "Manav", "asdf", "admin",
+				alertMessage);
+
 	}
-	
+
 	public boolean verifyTheAddedAdminUser() {
 		gu.clickButton(searchButton);
-		return gu.verificationOfUserAddition(driver,userNameColumn, userNameUnderSearch, subSearchButton, "Manav");
+		return gu.verificationOfUserAddition(driver, userNameColumn, userNameUnderSearch, subSearchButton, "Manav");
 	}
-	
+
 	public String currentUrlOfThePage() {
 		return gu.getTheCurrentURLOFPage(driver);
 	}
-	
+
+	public void deleteAdminUser() {
+		gu.deleteAdminUserFromAdminUsersTab(driver, userNameColumn, "Manav");
+	}
 
 }

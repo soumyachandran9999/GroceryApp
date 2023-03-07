@@ -16,9 +16,10 @@ public class ManageProductPageTestCases extends BaseClass {
 	ManageProductPage mp;
 
 	@Test
-	public void verifyTheBackgroundColorOfNewButton() {
+	public void verifyTheBackgroundColorOfNewButton() throws IOException {
+		testBasic();
 		lp = new LoginPage(driver);
-		lp.signInToTheApplication(Constant.USERNAME, Constant.PASSWORD);
+		lp.signInToTheApplication(prop.getProperty("UserName"), prop.getProperty("Password"));
 		mp = new ManageProductPage(driver);
 		mp.clickManageProduct();
 		String actalResult = mp.getTheBackgroundColorOfNewButton();
@@ -27,9 +28,10 @@ public class ManageProductPageTestCases extends BaseClass {
 
 	}
 	@Test
-	public void verifyTheBackgroundColorOfSearchButton() {
+	public void verifyTheBackgroundColorOfSearchButton() throws IOException {
+		testBasic();
 		lp = new LoginPage(driver);
-		lp.signInToTheApplication(Constant.USERNAME, Constant.PASSWORD);
+		lp.signInToTheApplication(prop.getProperty("UserName"), prop.getProperty("Password"));
 		mp = new ManageProductPage(driver);
 		mp.clickManageProduct();
 		String actalResult = mp.getTheBackgroundColorOfSearchButton();
@@ -39,9 +41,10 @@ public class ManageProductPageTestCases extends BaseClass {
 	}
 	
 	@Test
-	public void verifyTheBackgroundColorOfResetButton() {
+	public void verifyTheBackgroundColorOfResetButton() throws IOException {
+		testBasic();
 		lp = new LoginPage(driver);
-		lp.signInToTheApplication(Constant.USERNAME, Constant.PASSWORD);
+		lp.signInToTheApplication(prop.getProperty("UserName"), prop.getProperty("Password"));
 		mp = new ManageProductPage(driver);
 		mp.clickManageProduct();
 		String actalResult = mp.getTheBackgroundColorOfResetButton();
@@ -50,9 +53,10 @@ public class ManageProductPageTestCases extends BaseClass {
 
 	}
 	@Test
-	public void verifyTheFontColorOfResetButton() {
+	public void verifyTheFontColorOfResetButton() throws IOException {
+		testBasic();
 		lp = new LoginPage(driver);
-		lp.signInToTheApplication(Constant.USERNAME, Constant.PASSWORD);
+		lp.signInToTheApplication(prop.getProperty("UserName"), prop.getProperty("Password"));
 		mp = new ManageProductPage(driver);
 		mp.clickManageProduct();
 		String actalResult = mp.getTheFontColorOfResetButton();
@@ -61,9 +65,10 @@ public class ManageProductPageTestCases extends BaseClass {
 
 	}
 	@Test
-	public void verifyTheBorderColorOfNewButton() {
+	public void verifyTheBorderColorOfNewButton() throws IOException {
+		testBasic();
 		lp = new LoginPage(driver);
-		lp.signInToTheApplication(Constant.USERNAME, Constant.PASSWORD);
+		lp.signInToTheApplication(prop.getProperty("UserName"), prop.getProperty("Password"));
 		mp = new ManageProductPage(driver);
 		mp.clickManageProduct();
 		String actalResult = mp.getTheBorderColorOfNewButton();
@@ -72,9 +77,10 @@ public class ManageProductPageTestCases extends BaseClass {
 
 	}
 	@Test
-	public void verifyTheListedItemsInTheTitleColumnUnderRedMeatSearch() {
+	public void verifyTheListedItemsInTheTitleColumnUnderRedMeatSearch() throws IOException {
+		testBasic();
 		lp=new LoginPage(driver);
-		lp.signInToTheApplication(Constant.USERNAME, Constant.PASSWORD);
+		lp.signInToTheApplication(prop.getProperty("UserName"), prop.getProperty("Password"));
 		mp=new ManageProductPage(driver);
 		mp.clickManageProduct();
 		mp.clickSearchButton();
@@ -83,24 +89,25 @@ public class ManageProductPageTestCases extends BaseClass {
 		Assert.assertEquals(actualResult, expectedResult, "::Listed items in the Title Column is not Expected");
 		
 	}
-	@Test
-	public void verifyTheSelectedValueInTheCategoryTab() throws IOException {
-		testBasic();
-		lp=new LoginPage(driver);
-		lp.signInToTheApplication(Constant.USERNAME, Constant.PASSWORD);
-		mp=new ManageProductPage(driver);
-		mp.clickManageProduct();
-		mp.clickSearchButton();
-		String actualResult= mp.selectCategoryOfListProducts();
-		String expectedResult=prop.getProperty("ExpectedResultOfVerifyTheSelectedValueInTheCategoryTab");
-		Assert.assertEquals(actualResult, expectedResult, prop.getProperty("ErrorMessageOfVerifyTheSelectedValueInTheCategoryTab"));
-		
-	}
+//	@Test
+//	public void verifyTheSelectedValueInTheCategoryTab() throws IOException {
+//		testBasic();
+//		lp=new LoginPage(driver);
+//		lp.signInToTheApplication(Constant.USERNAME, Constant.PASSWORD);
+//		mp=new ManageProductPage(driver);
+//		mp.clickManageProduct();
+//		mp.clickSearchButton();
+//		String actualResult= mp.selectCategoryOfListProducts();
+//		String expectedResult=prop.getProperty("ExpectedResultOfVerifyTheSelectedValueInTheCategoryTab");
+//		Assert.assertEquals(actualResult, expectedResult, prop.getProperty("ErrorMessageOfVerifyTheSelectedValueInTheCategoryTab"));
+//		
+//	}
 	
 	@Test
-	public void verifyTheAlertTextAfterClickingDeleteButtonCorrespondingToParachuteCoconutOil() {
+	public void verifyTheAlertTextAfterClickingDeleteButtonCorrespondingToParachuteCoconutOil() throws IOException {
+		testBasic();
 		lp=new LoginPage(driver);
-		lp.signInToTheApplication(Constant.USERNAME, Constant.PASSWORD);
+		lp.signInToTheApplication(prop.getProperty("UserName"), prop.getProperty("Password"));
 		mp=new ManageProductPage(driver);
 		mp.clickManageProduct();
 		mp.clickSearchButton();

@@ -19,16 +19,22 @@ public class LoginPageTestCases extends BaseClass {
 	LoginPage lp;
 	ExcelRead er;
 
-	@Test
-	public void verifyTheTextOnSignInBUtton() throws IOException {
-		testBasic();
-		lp = new LoginPage(driver);
-		String actualResultString = lp.getTheTextOfSignInButton();
-		String expectedResultString = prop.getProperty("ExpectedResultOfverifyTheTextOnSignInBUtton");
-		Assert.assertEquals(actualResultString, expectedResultString, Constant.EXPECTEDRESULTOFVERIFYTEXTOFLOGINBUTTON);
+	@Test(groups = {"High"}, priority = 3)
+	public void verifyTheTextOnSignInBUtton() {
+		try {
+			testBasic();
+			lp = new LoginPage(driver);
+			String actualResultString = lp.getTheTextOfSignInButton();
+			String expectedResultString = prop.getProperty("ExpectedResultOfverifyTheTextOnSignInBUtton");
+			Assert.assertEquals(actualResultString, expectedResultString,
+					Constant.EXPECTEDRESULTOFVERIFYTEXTOFLOGINBUTTON);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 	}
 
-	@Test
+	@Test(groups = {"High", "Critical"}, priority = 1)
 	public void verifyTheBrandTextDisplayedInTheLoginPage() {
 		lp = new LoginPage(driver);
 		String actualResultString = lp.getTheBrandTextInTheLoginPage();
@@ -36,13 +42,33 @@ public class LoginPageTestCases extends BaseClass {
 		Assert.assertEquals(actualResultString, expectedResultString, Constant.ERRORMESSAGEOFBRANDNAMEINLOGINPAGE);
 	}
 
-	@Test
-	public void verifyTheUncheckOfRememberMeCheckBox() throws IOException {
-		testBasic();
-		lp = new LoginPage(driver);
-		boolean actualResult = lp.untickRememberMecheckBox();
-		boolean expectedResult = Constant.EXPECTEDRESULTOFREMEMBERMEUNCHECK;
-		Assert.assertEquals(actualResult, expectedResult, prop.getProperty("ErrorMessageForVerifyTheUncheckOfRememberMeCheckBox"));
+	@Test(groups = {"Low"}, priority = 4)
+	public void verifyTheUncheckOfRememberMeCheckBox() {
+		try {
+			testBasic();
+			lp = new LoginPage(driver);
+			boolean actualResult = lp.untickRememberMecheckBox();
+			boolean expectedResult = Constant.EXPECTEDRESULTOFREMEMBERMEUNCHECK;
+			Assert.assertEquals(actualResult, expectedResult,
+					prop.getProperty("ErrorMessageForVerifyTheUncheckOfRememberMeCheckBox"));
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Test(groups = {"High", "Critical"}, priority = 2)
+	public void verifyTheLoginBoxMessage() {
+		try {
+			testBasic();
+			lp = new LoginPage(driver);
+			String actualResult = lp.getTheLoginBoxMessage();
+			String expectedResult = prop.getProperty("ExpectedResultoftheLoginBoxMessage");
+			Assert.assertEquals(actualResult, expectedResult, Constant.ERRORMESSAGEOFVERIFYTHELOGINBOXMESSAGE);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 }

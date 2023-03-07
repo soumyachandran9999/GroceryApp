@@ -18,7 +18,7 @@ public class ManageOrderPageTestCases extends BaseClass {
 	public void verifyTheStatusOfOrderId295() throws IOException {
 		testBasic();
 		lp = new LoginPage(driver);
-		lp.signInToTheApplication(Constant.USERNAME, Constant.PASSWORD);
+		lp.signInToTheApplication(prop.getProperty("UserName"), prop.getProperty("Password"));
 		mop = new ManageOrderPage(driver);
 		mop.clickManageOrderMoreInfo();
 		String actualResult = mop.changeTheStatusOfOrderId295();

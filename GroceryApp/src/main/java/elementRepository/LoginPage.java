@@ -28,6 +28,8 @@ public class LoginPage {
 	WebElement brandTextInLoginPage;
 	@FindBy(xpath = "//label[@for='remember']")
 	WebElement rememberMeCheckBox;
+	@FindBy(xpath = "//p[@class='login-box-msg']")
+	WebElement loginBoxMessage;
 
 	public String getTheTextOfSignInButton() {
 
@@ -39,12 +41,18 @@ public class LoginPage {
 		password.sendKeys(pswd);
 		gu.clickButton(signInButton);
 	}
+
 	public String getTheBrandTextInTheLoginPage() {
 		return gu.readTextOfAnElement(brandTextInLoginPage);
 	}
+
 	public boolean untickRememberMecheckBox() {
 		gu.clickButton(rememberMeCheckBox);
 		return gu.checkWhetherTheElementIsSelected(rememberMeCheckBox);
+	}
+
+	public String getTheLoginBoxMessage() {
+		return gu.getTheLoginBoxMessage(loginBoxMessage);
 	}
 
 }

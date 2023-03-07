@@ -16,26 +16,28 @@ public class VerifyUsersPageTestCases extends BaseClass {
 	ExcelRead er;
 
 	@Test
-	public void verifyTheTagNameofVerifyUsersTab() {
+	public void verifyTheTagNameofVerifyUsersTab() throws IOException {
+		testBasic();
 		lp = new LoginPage(driver);
-		lp.signInToTheApplication(Constant.USERNAME, Constant.PASSWORD);
+		lp.signInToTheApplication(prop.getProperty("UserName"), prop.getProperty("Password"));
 		vp = new VerifyUsersPage(driver);
 		String actualResult = vp.getTheTagNameOfVerifyUsersTab();
 		String expectedResult = Constant.EXPECTEDRESULTOFVERIFYTHETAGNAMEOFVERIFYUSERSTAB;
-		Assert.assertEquals(actualResult, expectedResult, Constant.ERRORMESSAGEFORVERIFYTHETAGNAMEOFVERIFYUSERSTAB );
+		Assert.assertEquals(actualResult, expectedResult, Constant.ERRORMESSAGEFORVERIFYTHETAGNAMEOFVERIFYUSERSTAB);
 
 	}
 
 	@Test
 	public void verifyTheStatusActiveForSearchListUsers() throws IOException {
+		testBasic();
 		lp = new LoginPage(driver);
-		lp.signInToTheApplication(Constant.USERNAME, Constant.PASSWORD);
+		lp.signInToTheApplication(prop.getProperty("UserName"), prop.getProperty("Password"));
 		vp = new VerifyUsersPage(driver);
 		String actualResult = vp.selectStatusActiveForSearchListUsersInVerifyUsersTab();
-		er=new ExcelRead();
-		System.out.println(er.readFromExcelFile(0,0));
-		String expectedResult=er.readFromExcelFile(0,0);
-		Assert.assertEquals(actualResult, expectedResult, er.readFromExcelFile(3, 1));
+		er = new ExcelRead();
+		String expectedResult = Constant.EXPECTEDRESULTOFVERIFYTHESTATUSACTIVEFORSEARCHLISTUSER;
+		Assert.assertEquals(actualResult, expectedResult,
+				Constant.ERRORMESSAGEOFVERIFYTHESTATUSACTIVEFORSEARCHLISTUSER);
 
 	}
 }

@@ -16,16 +16,29 @@ public class ManagePaymentMethodPage {
 		PageFactory.initElements(driver, this);// initialize elements page factory
 
 	}
+
 	@FindBy(xpath = "//p[text()='Manage Payment Methods']")
 	WebElement managePaymentMethodsElement;
-	
+	@FindBy(xpath = "//a[@class='btn btn-rounded btn-warning']")
+	WebElement resetButton;
+
 	public void clickManagePaymentMethodsTab() {
 		gu.clickButton(managePaymentMethodsElement);
 	}
-	
+
 	public String getTitleOfManagePaymentMEthodsPage() {
-		
+
 		return gu.getTitleOfTheCurrentPage(driver);
+	}
+
+	public String getTheUrlOfThePage() {
+		return gu.getTheCurrentURLOFPage(driver);
+
+	}
+
+	public String getTheBackgroundColorOfResetButton() {
+		return gu.getTheStylePropertyValue(resetButton, "background-color");
+
 	}
 
 }

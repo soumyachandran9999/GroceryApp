@@ -1,0 +1,34 @@
+<suite name="CrossBrowserSuite">
+	<test name="ChromeBrowser">
+		<parameter name="browser" value="chrome"></parameter>
+		<classes>
+			<class name="testCases.AdminUsersPageTestCases"></class>
+			<class name="testCases.HomePageTestCases"></class>
+			<class name="testCases.LoginPageTestCases"></class>
+			<class name="testCases.ManageExpensePageTestCases"></class>
+			<class name="testCases.ManageLocationPageTestCases"></class>
+			<class name="testCases.ManageOrderPageTestCases"></class>
+			<class name="testCases.ManagePaymentMethodPageTestCases"></class>
+			<class name="testCases.ManageProductPageTestCases"></class>
+			<class name="testCases.ManageSliderPageTestCases"></class>
+			<class name="testCases.ManageUsersTestCases"></class>
+			<class name="testCases.VerifyUsersPageTestCases"></class>
+		</classes>
+	</test>
+	<test name="EdgeBrowser">
+		<parameter name="browser" value="edge"></parameter>
+		<classes>
+			<class name="testCases.AdminUsersPageTestCases"></class>
+			<class name="testCases.HomePageTestCases"></class>
+			<class name="testCases.LoginPageTestCases"></class>
+			<class name="testCases.ManageExpensePageTestCases"></class>
+			<class name="testCases.ManageLocationPageTestCases"></class>
+			<class name="testCases.ManageOrderPageTestCases"></class>
+			<class name="testCases.ManagePaymentMethodPageTestCases"></class>
+			<class name="testCases.ManageProductPageTestCases"></class>
+			<class name="testCases.ManageSliderPageTestCases"></class>
+			<class name="testCases.ManageUsersTestCases"></class>
+			<class name="testCases.VerifyUsersPageTestCases"></class>
+		</classes>
+	</test>
+</suite>
