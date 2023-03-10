@@ -11,11 +11,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import utilities.ExplicitWait;
 import utilities.GeneralUtilities;
-
 public class AdminUsersPage {
 	WebDriver driver;
 	GeneralUtilities gu = new GeneralUtilities();
+	ExplicitWait ew= new ExplicitWait();
 
 	public AdminUsersPage(WebDriver driver) {
 		this.driver = driver;
@@ -43,6 +44,8 @@ public class AdminUsersPage {
 	WebElement subSearchButton;
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']//tbody//tr//td[1]")
 	List<WebElement> userNameColumn;
+	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']//thead//th[1]")
+	WebElement userNameElement;
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
 	WebElement alertMessage;
 
@@ -50,10 +53,11 @@ public class AdminUsersPage {
 		gu.clickButton(adminUsersTab);
 	}
 
-	public String addUserAsAdmin() {
+	public boolean addUserAsAdmin() {
+		ew.waitTillPresenceOfElement(driver, "//a[@class='btn btn-rounded btn-danger']");
 		gu.clickButton(newButton);
 		return gu.addUsersToAdminUsersPage(userName, password, userType, saveButton, "Manav", "asdf", "admin",
-				alertMessage);
+				userNameElement);
 
 	}
 
@@ -69,5 +73,12 @@ public class AdminUsersPage {
 	public void deleteAdminUser() {
 		gu.deleteAdminUserFromAdminUsersTab(driver, userNameColumn, "Manav");
 	}
+	public String addUsersUsingRandomDataGeneration() {
+		
+		return null;
+		
+	}
 
 }
+
+

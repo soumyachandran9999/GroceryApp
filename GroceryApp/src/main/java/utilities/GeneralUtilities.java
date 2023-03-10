@@ -170,15 +170,15 @@ public class GeneralUtilities {
 
 	}
 
-	public String addUsersToAdminUsersPage(WebElement username, WebElement pswd, WebElement userType,
+	public boolean addUsersToAdminUsersPage(WebElement username, WebElement pswd, WebElement userType,
 			WebElement saveButtonElement, String userNameValue, String pswdValue, String userTypeValue,
-			WebElement alert) {
+			WebElement userNameElement) {
 		username.sendKeys(userNameValue);
 		pswd.sendKeys(pswdValue);
 		selectOptionFromDropDown(userType, userTypeValue);
 		clickButton(saveButtonElement);
-		String alertMsg = alert.getText();
-		return alertMsg;
+		boolean a=userNameElement.isDisplayed();
+		return a;
 
 	}
 
