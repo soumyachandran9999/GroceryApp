@@ -22,6 +22,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.google.common.util.concurrent.Monitor.Guard;
 
 public class GeneralUtilities {
+	ExplicitWait ew= new ExplicitWait();
 
 	public String getTheTextOfElement(WebElement element) {
 
@@ -117,6 +118,7 @@ public class GeneralUtilities {
 		}
 		WebElement deleteButton = driver.findElement(By.xpath(locator));
 		deleteButton.click();
+		ew.waitTillPresenceOfAlert(driver);
 		String alertText = driver.switchTo().alert().getText();
 		driver.switchTo().alert().dismiss();
 		return alertText;
