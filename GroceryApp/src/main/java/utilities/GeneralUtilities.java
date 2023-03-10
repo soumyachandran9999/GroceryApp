@@ -337,4 +337,9 @@ public class GeneralUtilities {
 
 	}
 
+	public String getTheHeadingOfThePageSelected(WebElement heading) {
+		String result= heading.getText();
+		return result;
+	}
+
 }

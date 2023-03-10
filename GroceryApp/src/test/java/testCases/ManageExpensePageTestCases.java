@@ -24,7 +24,7 @@ public class ManageExpensePageTestCases extends BaseClass {
 		mep = new ManageExpensePage(driver);
 		mep.clickOnManageExpenseDropDown();
 		String actualResult = mep.selectManageExpenseButton();
-		String expectedResult = "List Expense | 7rmart supermarket";
+		String expectedResult = "List Expense";
 		Assert.assertEquals(actualResult, expectedResult, Constant.ERRORMESSAGEOFSELECTIONOFMANAGEEXPENSERADIOBUTTON);
 	}
 

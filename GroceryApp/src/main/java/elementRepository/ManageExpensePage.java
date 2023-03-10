@@ -38,6 +38,8 @@ public class ManageExpensePage {
 	WebElement saveButton;
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']//tbody//tr//td[1]")
 	List<WebElement> titleColumn;
+	@FindBy(xpath = "(//h4[@class='card-title'])[2]")
+	WebElement headingElement;
 
 	public void clickOnManageExpenseDropDown() {
 		gu.clickButton(manageExpenseDropDown);
@@ -51,7 +53,7 @@ public class ManageExpensePage {
 
 	public String selectManageExpenseButton() {
 		gu.clickButton(manageExpense);
-		return gu.getTitleOfTheCurrentPage(driver);
+		return gu.getTheHeadingOfThePageSelected(headingElement);
 
 	}
 
