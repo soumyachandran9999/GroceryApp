@@ -23,8 +23,8 @@ public class ManageExpensePageTestCases extends BaseClass {
 		lp.signInToTheApplication(prop.getProperty("UserName"), prop.getProperty("Password"));
 		mep = new ManageExpensePage(driver);
 		mep.clickOnManageExpenseDropDown();
-		boolean actualResult = mep.selectManageExpenseButton();
-		boolean expectedResult = true;
+		String actualResult = mep.selectManageExpenseButton();
+		String expectedResult = "List Expense | 7rmart supermarket";
 		Assert.assertEquals(actualResult, expectedResult, Constant.ERRORMESSAGEOFSELECTIONOFMANAGEEXPENSERADIOBUTTON);
 	}
 

@@ -49,9 +49,9 @@ public class ManageExpensePage {
 
 	}
 
-	public boolean selectManageExpenseButton() {
+	public String selectManageExpenseButton() {
 		gu.clickButton(manageExpense);
-		return gu.checkWhetherTheElementIsSelectedByUsingAtributeValue(manageExpense, "class", "active");
+		return gu.getTitleOfTheCurrentPage(driver);
 
 	}
 

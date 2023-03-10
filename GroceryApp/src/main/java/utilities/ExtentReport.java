@@ -38,8 +38,8 @@ public class ExtentReport implements ITestListener {
 		reports.attachReporter(sparkReporter);
 
 		// System details
-		reports.setSystemInfo("PC Name", "ALViNs");
-		reports.setSystemInfo("OS", "Windows 10");
+		reports.setSystemInfo("PC Name", "Soumya");
+		reports.setSystemInfo("OS", "Windows 11");
 		reports.setSystemInfo("Browser", "Chrome");
 		sparkReporter.config().setDocumentTitle("Extent Report Sample");
 		sparkReporter.config().setReportName("Report Summary");
