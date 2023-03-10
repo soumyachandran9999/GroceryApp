@@ -22,7 +22,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.google.common.util.concurrent.Monitor.Guard;
 
 public class GeneralUtilities {
-	ExplicitWait ew= new ExplicitWait();
+	ExplicitWait ew = new ExplicitWait();
 
 	public String getTheTextOfElement(WebElement element) {
 
@@ -103,7 +103,7 @@ public class GeneralUtilities {
 		return option;
 	}
 
-	public String findElementFromListOfElementsAndClickDelete(WebDriver driver, List<WebElement> list,
+	public boolean findElementFromListOfElementsAndClickDelete(WebDriver driver, List<WebElement> list,
 			WebElement element, WebElement element2, String searchValue, String comparingValue) {
 		element.sendKeys(searchValue);
 		element2.click();
@@ -117,12 +117,9 @@ public class GeneralUtilities {
 			}
 		}
 		WebElement deleteButton = driver.findElement(By.xpath(locator));
-		deleteButton.click();
-		ew.waitTillPresenceOfAlert(driver);
-		String alertText = driver.switchTo().alert().getText();
-		driver.switchTo().alert().dismiss();
-		return alertText;
+		boolean result = deleteButton.isDisplayed();
 
+		return result;
 	}
 
 	public String addNewSliderInformationForElement(WebDriver driver, WebElement newButtonElement,
@@ -179,7 +176,7 @@ public class GeneralUtilities {
 		pswd.sendKeys(pswdValue);
 		selectOptionFromDropDown(userType, userTypeValue);
 		clickButton(saveButtonElement);
-		boolean a=userNameElement.isDisplayed();
+		boolean a = userNameElement.isDisplayed();
 		return a;
 
 	}

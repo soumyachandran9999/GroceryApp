@@ -47,7 +47,6 @@ public class BaseClass {
 		driver.get(prop.getProperty("BaseURL"));// getProperty method use to get value from property file
 	}
 
-
 	@AfterMethod(alwaysRun = true)
 	public void afterMethod(ITestResult itestResult) throws IOException {
 		if (itestResult.getStatus() == ITestResult.FAILURE) {

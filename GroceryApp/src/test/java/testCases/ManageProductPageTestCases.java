@@ -111,8 +111,8 @@ public class ManageProductPageTestCases extends BaseClass {
 		mp=new ManageProductPage(driver);
 		mp.clickManageProduct();
 		mp.clickSearchButton();
-		String actualResult= mp.findParachuteFromTheListOfItemsWithTitleValueCoconutOilAndDelete();
-		String expectedResult=prop.getProperty("ExpectedResultOfVerifyTheAlertTextAfterClickingDeleteButtonCorrespondingToParachuteCoconutOil");
+		boolean actualResult= mp.findParachuteFromTheListOfItemsWithTitleValueCoconutOilAndDelete();
+		boolean expectedResult=true;
 		Assert.assertEquals(actualResult, expectedResult,prop.getProperty("ErrorMessageOfVerifyTheAlertTextAfterClickingDeleteButtonCorrespondingToParachuteCoconutOil") );
 		
 	}

@@ -80,7 +80,7 @@ public class ManageProductPage {
 		return gu.selectOptionFromDropDown(categoryTab, "3");
 	}
 
-	public String findParachuteFromTheListOfItemsWithTitleValueCoconutOilAndDelete() {
+	public boolean findParachuteFromTheListOfItemsWithTitleValueCoconutOilAndDelete() {
 		return gu.findElementFromListOfElementsAndClickDelete(driver, titleColumn, titleBar, searchListProduct, "Coconut Oil", "Parachute");
 		
 	}
