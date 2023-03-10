@@ -26,7 +26,7 @@ public class ManageExpensePage {
 
 	@FindBy(xpath = "//i[@class='nav-icon fas fa-money-bill-alt']")
 	WebElement manageExpenseDropDown;
-	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-expense']")
+	@FindBy(xpath = "//p[text()='Manage Expense']")
 	WebElement manageExpense;
 	@FindBy(xpath = "//p[text()='Expense Category']")
 	WebElement expenseCategory;
