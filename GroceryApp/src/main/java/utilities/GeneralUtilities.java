@@ -341,5 +341,25 @@ public class GeneralUtilities {
 		String result= heading.getText();
 		return result;
 	}
+	public boolean addUsersToAdminUsersPageUsingRandomDataGeneration(WebElement username, WebElement pswd, WebElement userType,
+			WebElement saveButtonElement, String userNameValue, String pswdValue, String userTypeValue,
+			WebElement userNameElement) {
+		username.sendKeys(userNameValue+randomnumbers());
+		pswd.sendKeys(pswdValue);
+//		selectOptionFromDropDown(userType, userTypeValue);
+		Select select=new Select(userType);
+		select.selectByValue(userTypeValue);
+		clickButton(saveButtonElement);
+		boolean a = userNameElement.isDisplayed();
+		return a;
+
+	}
+
+	public boolean checkWetherLogoutIsSuccess(WebElement logedUser,WebElement logoutButton,WebElement enterUsernameForLogin) {
+		clickButton(logedUser);
+		clickButton(logoutButton);
+		boolean result= enterUsernameForLogin.isDisplayed();
+		return result;
+	}
 
 }

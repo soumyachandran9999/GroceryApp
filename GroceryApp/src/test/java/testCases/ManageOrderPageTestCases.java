@@ -9,12 +9,13 @@ import constant.Constant;
 import elementRepository.LoginPage;
 import elementRepository.ManageOrderPage;
 import utilities.ExcelRead;
+import utilities.RetryUtils;
 
 public class ManageOrderPageTestCases extends BaseClass {
 	LoginPage lp;
 	ManageOrderPage mop;
 
-	@Test
+	@Test(groups = { "Regression" },retryAnalyzer = RetryUtils.class)
 	public void verifyTheStatusOfOrderId295() throws IOException {
 		testBasic();
 		lp = new LoginPage(driver);

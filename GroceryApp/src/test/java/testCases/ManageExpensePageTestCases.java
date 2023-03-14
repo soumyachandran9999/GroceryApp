@@ -10,13 +10,14 @@ import constant.Constant;
 import elementRepository.LoginPage;
 import elementRepository.ManageExpensePage;
 import utilities.ExcelRead;
+import utilities.RetryUtils;
 
 public class ManageExpensePageTestCases extends BaseClass {
 	LoginPage lp;
 	ManageExpensePage mep;
 	ExcelRead er;
 
-	@Test
+	@Test(groups = { "Regression" },retryAnalyzer = RetryUtils.class)
 	public void verifyTheSelectionOfManageExpenseUnderManageExpenseDropDown() throws IOException {
 		testBasic();
 		lp = new LoginPage(driver);
@@ -28,7 +29,7 @@ public class ManageExpensePageTestCases extends BaseClass {
 		Assert.assertEquals(actualResult, expectedResult, Constant.ERRORMESSAGEOFSELECTIONOFMANAGEEXPENSERADIOBUTTON);
 	}
 
-	@Test(dataProvider = "data-provider")
+	@Test(groups = { "Regression" },dataProvider = "data-provider",retryAnalyzer = RetryUtils.class)
 	public void verifyTheNewExpenseCategoryAdded(String categoryName) throws InterruptedException, IOException {
 		testBasic();
 		lp = new LoginPage(driver);
@@ -37,7 +38,7 @@ public class ManageExpensePageTestCases extends BaseClass {
 		mep.clickOnManageExpenseDropDown();
 		mep.addNewExpenseCategory(categoryName);
 		boolean actualResult = mep.verifyTheAddedCategory(categoryName);
-		boolean expectedResult = true;
+		boolean expectedResult = Constant.EXPECTEDRESULTOFVERIFYTHENEWEXPENSECATEGORYADDED;
 		Assert.assertEquals(actualResult, expectedResult, Constant.ERRORMESSAGEOFVERIFYTHENEWEXPENSECATEGORYADDED);
 		mep.deleteTheExpenseCategory(categoryName);
 	}

@@ -9,13 +9,14 @@ import org.testng.annotations.Test;
 import constant.Constant;
 import elementRepository.LoginPage;
 import elementRepository.ManageProductPage;
+import utilities.RetryUtils;
 
 public class ManageProductPageTestCases extends BaseClass {
 
 	LoginPage lp;
 	ManageProductPage mp;
 
-	@Test
+	@Test(groups = { "Regression" },retryAnalyzer = RetryUtils.class)
 	public void verifyTheBackgroundColorOfNewButton() throws IOException {
 		testBasic();
 		lp = new LoginPage(driver);
@@ -27,7 +28,7 @@ public class ManageProductPageTestCases extends BaseClass {
 		Assert.assertEquals(actalResult, expectedResult, Constant.ERRORMESSAGEOFVERIFYTHEBACKGROUNDCOLOROFNEWBUTTON);
 
 	}
-	@Test
+	@Test(groups = { "Regression" },retryAnalyzer = RetryUtils.class)
 	public void verifyTheBackgroundColorOfSearchButton() throws IOException {
 		testBasic();
 		lp = new LoginPage(driver);
@@ -40,7 +41,7 @@ public class ManageProductPageTestCases extends BaseClass {
 
 	}
 	
-	@Test
+	@Test(groups = { "Regression" },retryAnalyzer = RetryUtils.class)
 	public void verifyTheBackgroundColorOfResetButton() throws IOException {
 		testBasic();
 		lp = new LoginPage(driver);
@@ -52,7 +53,7 @@ public class ManageProductPageTestCases extends BaseClass {
 		Assert.assertEquals(actalResult, expectedResult, Constant.ERRORMESSAGEOFVERIFYTHEBACKGROUNDCOLOROFRESETBUTTON);
 
 	}
-	@Test
+	@Test(groups = { "Regression" },retryAnalyzer = RetryUtils.class)
 	public void verifyTheFontColorOfResetButton() throws IOException {
 		testBasic();
 		lp = new LoginPage(driver);
@@ -64,7 +65,7 @@ public class ManageProductPageTestCases extends BaseClass {
 		Assert.assertEquals(actalResult, expectedResult,Constant.ERRORMESSAGEOFVERIFYTHEFONTCOLOROFRESETBUTTON );
 
 	}
-	@Test
+	@Test(groups = { "Regression" },retryAnalyzer = RetryUtils.class)
 	public void verifyTheBorderColorOfNewButton() throws IOException {
 		testBasic();
 		lp = new LoginPage(driver);
@@ -76,7 +77,7 @@ public class ManageProductPageTestCases extends BaseClass {
 		Assert.assertEquals(actalResult, expectedResult, Constant.ERRORMESSAGEOFTHEBORDERCOLOROFNEWBUTTON);
 
 	}
-	@Test
+	@Test(groups = { "Regression" },retryAnalyzer = RetryUtils.class)
 	public void verifyTheListedItemsInTheTitleColumnUnderRedMeatSearch() throws IOException {
 		testBasic();
 		lp=new LoginPage(driver);
@@ -103,7 +104,7 @@ public class ManageProductPageTestCases extends BaseClass {
 //		
 //	}
 	
-	@Test
+	@Test(groups = { "Regression" },retryAnalyzer = RetryUtils.class)
 	public void verifyTheAlertTextAfterClickingDeleteButtonCorrespondingToParachuteCoconutOil() throws IOException {
 		testBasic();
 		lp=new LoginPage(driver);

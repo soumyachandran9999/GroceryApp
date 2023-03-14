@@ -9,8 +9,17 @@
 		</groups>
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
-			<class name="testCases.AdminUsersPageTestCases"></class>
-			<class name="testCases.LoginPageTestCases"></class>
+			<class name="testCases.LoginPageTestCases" />
+			<class name="testCases.AdminUsersPageTestCases" />
+			<class name="testCases.HomePageTestCases" />
+			<class name="testCases.ManageExpensePageTestCases" />
+			<class name="testCases.ManageLocationPageTestCases" />
+			<class name="testCases.ManageOrderPageTestCases" />
+			<class name="testCases.ManagePaymentMethodPageTestCases" />
+			<class name="testCases.ManageProductPageTestCases" />
+			<class name="testCases.ManageSliderPageTestCases" />
+			<class name="testCases.ManageUsersTestCases" />
+			<class name="testCases.VerifyUsersPageTestCases" />
 		</classes>
 	</test>
 </suite>

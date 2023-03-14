@@ -13,12 +13,13 @@ import org.testng.annotations.Test;
 import constant.Constant;
 import elementRepository.LoginPage;
 import elementRepository.ManageSliderPage;
+import utilities.RetryUtils;
 
 public class ManageSliderPageTestCases extends BaseClass {
 	LoginPage lp;
 	ManageSliderPage msp;
 
-	@Test
+	@Test(groups = { "Regression" },retryAnalyzer = RetryUtils.class)
 	public void verifyTheCurrentPageURL() throws IOException {
 		testBasic();
 		lp = new LoginPage(driver);
@@ -30,7 +31,7 @@ public class ManageSliderPageTestCases extends BaseClass {
 		Assert.assertEquals(actualResult, expectedResult, prop.getProperty("ErrorMessageOfVerifyTheCurrentPageURL"));
 	}
 
-	@Test
+	@Test(groups = { "Regression" },retryAnalyzer = RetryUtils.class)
 	public void addNewSliderInformationForMattaRice() throws IOException, AWTException {
 		testBasic();
 		lp = new LoginPage(driver);
@@ -44,7 +45,7 @@ public class ManageSliderPageTestCases extends BaseClass {
 				prop.getProperty("ErrorMessageOfAddNewSliderInformationForMattaRice"));
 	}
 
-	@Test
+	@Test(groups = { "Regression" },retryAnalyzer = RetryUtils.class)
 	public void scrollManageSlidePage() throws IOException, InterruptedException {
 		testBasic();
 		lp = new LoginPage(driver);

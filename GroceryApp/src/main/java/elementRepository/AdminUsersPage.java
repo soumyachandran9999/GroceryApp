@@ -11,12 +11,14 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import utilities.ExcelRead;
 import utilities.ExplicitWait;
 import utilities.GeneralUtilities;
 public class AdminUsersPage {
 	WebDriver driver;
 	GeneralUtilities gu = new GeneralUtilities();
 	ExplicitWait ew= new ExplicitWait();
+	ExcelRead er=new ExcelRead();
 
 	public AdminUsersPage(WebDriver driver) {
 		this.driver = driver;
@@ -56,14 +58,14 @@ public class AdminUsersPage {
 	public boolean addUserAsAdmin() {
 		ew.waitTillPresenceOfElement(driver, "//a[@class='btn btn-rounded btn-danger']");
 		gu.clickButton(newButton);
-		return gu.addUsersToAdminUsersPage(userName, password, userType, saveButton, "Manav", "asdf", "admin",
+		return gu.addUsersToAdminUsersPage(userName, password, userType, saveButton,er.readFromExcelFile(0, 1) , er.readFromExcelFile(0, 2), er.readFromExcelFile(0, 3),
 				userNameElement);
 
 	}
 
 	public boolean verifyTheAddedAdminUser() {
 		gu.clickButton(searchButton);
-		return gu.verificationOfUserAddition(driver, userNameColumn, userNameUnderSearch, subSearchButton, "Manav");
+		return gu.verificationOfUserAddition(driver, userNameColumn, userNameUnderSearch, subSearchButton, er.readFromExcelFile(1, 1));
 	}
 
 	public String currentUrlOfThePage() {
@@ -71,11 +73,12 @@ public class AdminUsersPage {
 	}
 
 	public void deleteAdminUser() {
-		gu.deleteAdminUserFromAdminUsersTab(driver, userNameColumn, "Manav");
+		gu.deleteAdminUserFromAdminUsersTab(driver, userNameColumn, er.readFromExcelFile(2, 1));
 	}
-	public String addUsersUsingRandomDataGeneration() {
+	public boolean addUsersUsingRandomDataGeneration(String userNameValue, String passwordValue, String userTypeValue) {
+		gu.clickButton(newButton);
+		return gu.addUsersToAdminUsersPageUsingRandomDataGeneration(userName, password, userType, saveButton, userNameValue, passwordValue, userTypeValue, userNameElement);
 		
-		return null;
 		
 	}
 

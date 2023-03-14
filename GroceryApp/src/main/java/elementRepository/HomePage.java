@@ -23,16 +23,16 @@ public class HomePage {
 	WebElement logedUserAdmin;
 	@FindBy(xpath = "//a[@class='dropdown-item']//i[@class='ace-icon fa fa-power-off']")
 	WebElement logOutButton;
+	@FindBy(xpath = "//input[@name='username']")
+	WebElement enterUsernameForLogin;
 
 	public boolean checkWhetherTheBrandTextIsPresent() {
 		return gu.checkWhetherElementIsPresent(brandText);
 
 	}
 
-	public String logoutFromTheApplication() {
-		gu.clickButton(logedUserAdmin);
-		gu.clickButton(logOutButton);
-		return gu.getTitleOfTheCurrentPage(driver);
+	public boolean logoutFromTheApplication() {
+		return gu.checkWetherLogoutIsSuccess(logedUserAdmin,logOutButton,enterUsernameForLogin);
 
 	}
 

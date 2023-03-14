@@ -29,10 +29,14 @@ public class Constant {
 	public static final String ERRORMESSAGEOFVERIFYTHEURLOFMANAGEPAYMENTMETHEDPAGE = ":: The Url is not expected";
 	public static final String ERRORMESSAGEOFVERIFYTHELOGINBOXMESSAGE = ":: Login Box Message is not Expected";
 	public static final String ERRORMESSAGEOFVERIFYTHEBACKGROUNDCOLOROFRESETBUTTONINMANAGEEXPENSEPAGE = ":: Background Color is not Expected";
-
-	public static final String EXPECTEDRESULTOFSUCCESSFULLOGOUT = "Login | 7rmart supermarket";
-	public static final String EXPECTEDRESULTOFVERIFYTEXTOFLOGINBUTTON = "::Sign in text is not expected";
-	public static final String EXPECTEDRESULTOFBRANDTEXTINLOGINPAGE = "7rmart supermarket";
+	public static final String ERRORMESSAGEOFADDITIONOFMANAVASADMINUSER=":: User Addition is not expected";
+	public static final String ERRORMESSAGEOFVERIFYTEXTOFLOGINBUTTON = "::Sign in text is not expected";
+	
+	public static final boolean EXPECTEDRESULTOFSUCCESSFULLOGOUT =true;
+	public static final boolean EXPECTEDRESULTOFADDITIONOFMANAVASADMINUSER=true;
+	public static final boolean EXPECTEDRESULTOFVERIFYTHEPRESENCEOFBRANDTEXT=true;
+	
+	
 	public static final String EXPECTEDRESULTOFSTATUSACTIVEFORSEARCHLISTUSERS = "Active";
 	public static final boolean EXPECTEDRESULTOFREMEMBERMEUNCHECK = false;
 	public static final String EXPECTEDRESULTOFVERIFYTHETAGNAMEOFVERIFYUSERSTAB = "p";
@@ -44,9 +48,9 @@ public class Constant {
 	public static final String EXPECTEDRESULTOFVERIFYTHETITLEOFMANAGEPAYMENTMETHODPAGE = "Manage Payment Methods | 7rmart supermarket";
 	public static final String EXPECTEDRESULTOFVERIFYTHESTATUSORTESTER003 = "Active";
 	public static final String EXPECTEDRESULTOFADDNEWSLIDERINFORMATIONFORMATTARICE = "  Alert  Slider Created Successfully";
-	public static final String EXPECTEDRESULTOFVERIFYTHESTATUSOFCORNWALLSTATE = "Active";
+	
 	public static final boolean EXPECTEDRESULTOFVERIFYTHEADDITIONOFMANAVASADMINUSER = true;
-	public static final String EXPECTEDRESULTOFVERIFYTHECURRENTURLOFTHEPAGE = "https://groceryapp.uniqassosiates.com/admin/list-admin";
+	public static final boolean EXPECTEDRESULTOFVERIFYTHENEWEXPENSECATEGORYADDED=true;
 	public static final String EXPECTEDRESULTOFVERIFYTHEDELIVERYCHARGEOFDERBYSTATE = " 250";
 	public static final String EXPECTEDRESULTOFVERIFYTHESTATUSACTIVEFORSEARCHLISTUSER = "Active";
 	public static final String EXPECTEDRESULTOFVERIFYTHEURLOFMANAGEPAYMENTMETHEDPAGE = "https://groceryapp.uniqassosiates.com/admin/list-payment-methods";

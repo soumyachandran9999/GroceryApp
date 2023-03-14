@@ -9,13 +9,14 @@ import constant.Constant;
 import elementRepository.LoginPage;
 import elementRepository.VerifyUsersPage;
 import utilities.ExcelRead;
+import utilities.RetryUtils;
 
 public class VerifyUsersPageTestCases extends BaseClass {
 	LoginPage lp;
 	VerifyUsersPage vp;
 	ExcelRead er;
 
-	@Test
+	@Test(groups = { "Regression" },retryAnalyzer = RetryUtils.class)
 	public void verifyTheTagNameofVerifyUsersTab() throws IOException {
 		testBasic();
 		lp = new LoginPage(driver);
@@ -27,7 +28,7 @@ public class VerifyUsersPageTestCases extends BaseClass {
 
 	}
 
-	@Test
+	@Test(groups = { "Regression" },retryAnalyzer = RetryUtils.class)
 	public void verifyTheStatusActiveForSearchListUsers() throws IOException {
 		testBasic();
 		lp = new LoginPage(driver);
