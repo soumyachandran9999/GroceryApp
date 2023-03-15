@@ -50,6 +50,7 @@ public class AdminUsersPageTestCases extends BaseClass {
 		ap = new AdminUsersPage(driver);
 		ap.clickAdminUsersTab();
 		String actualResult = ap.currentUrlOfThePage();
+		System.out.println(actualResult);
 		String expectedResult = prop.getProperty("ExpectedResultOfverifyTheCurrentUrlOfThePage");
 		Assert.assertEquals(actualResult, expectedResult, Constant.ERRORMESSAGEOFVERIFYTHECURRENTURLOFTHEPAGE);
 	}
